@@ -1,0 +1,54 @@
+generated: '2026-07-18'
+method: searched
+source: >-
+  docs.armature.tech (quickstart, sdks/*, armature-mcp/connect, security/privacy)
+  and live /.well-known/oauth-authorization-server + oauth-protected-resource.
+  Armature's published OpenAPI at docs.armature.tech/.armature/openapi.json was
+  retired to an empty stub, so this profile is documented, not spec-derived.
+summary:
+  types: [oauth2, http]
+  api_key_in: [header]
+  oauth2_flows: [authorizationCode]
+schemes:
+- name: mcpOAuth
+  type: oauth2
+  description: >-
+    OAuth 2.0 authorization-code + PKCE for the hosted MCP server
+    (mcp.armature.tech/mcp). Recommended read-access method; the client is
+    challenged on first contact and completes authorization in the browser.
+    Dynamic client registration (RFC 7591) is supported.
+  flows:
+  - flow: authorizationCode
+    issuer: https://app.armature.tech
+    authorizationUrl: https://app.armature.tech/api/mcp/oauth/authorize
+    tokenUrl: https://app.armature.tech/api/mcp/oauth/token
+    registrationUrl: https://app.armature.tech/api/mcp/oauth/register
+    revocationUrl: https://app.armature.tech/api/mcp/oauth/revoke
+    code_challenge_methods: [S256]
+    grant_types: [authorization_code, refresh_token]
+    scopes:
+      mcp: Read-only access to workspace agent-session analytics
+  sources: [.well-known/oauth-authorization-server, docs.armature.tech/armature-mcp/connect]
+- name: workspaceApiKey
+  type: http
+  scheme: bearer
+  description: >-
+    Workspace API key sent as a bearer token in the Authorization header to the
+    MCP server. Created in Settings -> API keys. Governs read access; revocable
+    from the dashboard.
+  in: header
+  parameter: Authorization
+  sources: [docs.armature.tech/armature-mcp/connect]
+- name: ingestApiKey
+  type: apiKey
+  in: header
+  description: >-
+    Write-only ingest key used by the TypeScript/Python/Go MCP-analytics SDKs to
+    stream telemetry to Armature. Provided to the SDK via the
+    ANALYTICS_INGEST_API_KEY environment variable; scoped per MCP server, minted
+    once ("shown once — copy it"), rotatable/revocable per server. If the key is
+    missing the SDK quietly no-ops.
+  env_var: ANALYTICS_INGEST_API_KEY
+  scope: write-only
+  sources: [docs.armature.tech/quickstart, docs.armature.tech/sdks/python]
+docs: https://docs.armature.tech/armature-mcp/connect
