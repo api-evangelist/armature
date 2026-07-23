@@ -1,0 +1,46 @@
+generated: '2026-07-18'
+method: searched
+source: >-
+  live /.well-known/oauth-authorization-server + oauth-protected-resource,
+  docs.armature.tech/armature-mcp/connect, docs.armature.tech/security/privacy
+standards:
+- id: oauth2
+  conforms: true
+  evidence: >-
+    RFC 8414 authorization-server metadata published; authorization_code +
+    refresh_token grants, scope "mcp".
+- id: oauth2-pkce
+  conforms: true
+  evidence: code_challenge_methods_supported = [S256]
+- id: rfc7591-dynamic-client-registration
+  conforms: true
+  evidence: registration_endpoint published in authorization-server metadata
+- id: rfc9728-oauth-protected-resource
+  conforms: true
+  evidence: >-
+    /.well-known/oauth-protected-resource advertises resource, authorization
+    servers, scopes, and bearer_methods_supported = [header].
+- id: mcp
+  conforms: true
+  evidence: >-
+    Hosted MCP server over HTTP transport (mcp.armature.tech/mcp) exposing MCP
+    tools + a prompt; SDKs instrument MCP servers.
+- id: oidc
+  conforms: false
+  evidence: >-
+    /.well-known/openid-configuration returns the SPA HTML shell, not OIDC
+    discovery JSON.
+- id: rfc9457-problem-details
+  conforms: false
+- id: soc2
+  conforms: false
+  evidence: no named certification published (security/privacy page)
+- id: iso27001
+  conforms: false
+- id: hipaa
+  conforms: false
+- id: gdpr
+  conforms: unknown
+  evidence: >-
+    PII/secret redaction before storage and SHA-256 actor hashing documented, but
+    no formal GDPR compliance claim published.

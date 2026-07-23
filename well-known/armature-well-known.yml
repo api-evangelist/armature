@@ -1,0 +1,41 @@
+generated: '2026-07-18'
+method: searched
+source: live probes of Armature hosts /.well-known/*
+host: https://mcp.armature.tech
+notes: >-
+  mcp.armature.tech and app.armature.tech both serve valid RFC 8414 / RFC 9728
+  OAuth discovery JSON. Other /.well-known/* paths (security.txt,
+  openid-configuration, api-catalog, ai-plugin.json) return the SPA HTML shell
+  (HTTP 200 but text/html), so they are NOT real documents and are recorded as
+  such. docs.armature.tech and armature.tech return 404 for all probed paths.
+documents:
+- path: /.well-known/oauth-authorization-server
+  host: mcp.armature.tech
+  status: 200
+  content_type: application/json
+  file: armature-oauth-authorization-server.json
+- path: /.well-known/oauth-protected-resource
+  host: mcp.armature.tech
+  status: 200
+  content_type: application/json
+  file: armature-oauth-protected-resource.json
+- path: /.well-known/security.txt
+  host: mcp.armature.tech
+  status: 200
+  content_type: text/html
+  real: false
+- path: /.well-known/openid-configuration
+  host: mcp.armature.tech
+  status: 200
+  content_type: text/html
+  real: false
+- path: /.well-known/api-catalog
+  host: mcp.armature.tech
+  status: 200
+  content_type: text/html
+  real: false
+- path: /.well-known/ai-plugin.json
+  host: mcp.armature.tech
+  status: 200
+  content_type: text/html
+  real: false

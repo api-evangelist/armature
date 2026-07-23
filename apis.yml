@@ -1,22 +1,115 @@
 aid: armature
 name: Armature
-description: Armature is a company surfaced as a portfolio company of y-combinator and added to the API
-  Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Armature is a Y Combinator (Spring 2026) startup building product analytics
+  for AI agent sessions. Instead of tracking clicks in a human UI, Armature
+  captures how users interact with a product through Claude, ChatGPT, Claude
+  Code, Cursor and other agents by way of MCP servers. Drop-in SDKs for
+  TypeScript, Python and Go instrument an MCP server, streaming tool names,
+  timing, outcomes and size-capped previews (with PII and secrets redacted
+  before storage) to Armature, which reconstructs replayable, scored sessions.
+  The platform clusters use cases by volume and pass rate, detects issues ranked
+  by blast radius, and exposes a read-only hosted MCP server so teams can query
+  their own agent-experience analytics from any MCP client. Armature also
+  publishes an open "agent-review" Agent Skill that lets agents submit compact,
+  privacy-safe experience reports about the software flows they use.
 url: https://raw.githubusercontent.com/api-evangelist/armature/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - y-combinator
-x-tier: stub
+x-tier: enriched
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
+image: https://mcp.armature.tech/frontend/assets/armature-icon.svg
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
 tags:
 - Company
-apis: []
+- Agent Experience
+- Model Context Protocol
+- MCP
+- Analytics
+- Observability
+- AI Agents
+- Product Analytics
+- Developer Tools
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- name: Armature MCP Analytics
+  description: >-
+    Armature's programmable surface: an ingest API fed by the TypeScript/Python/Go
+    MCP-analytics SDKs, and a read-only hosted MCP server (mcp.armature.tech) that
+    serves reconstructed sessions, use-case clusters and ranked issues to any MCP
+    client. Bearer-token or OAuth authenticated.
+  humanURL: https://docs.armature.tech
+  baseURL: https://mcp.armature.tech
+  properties:
+  - type: Documentation
+    url: https://docs.armature.tech
+  - type: MCPServer
+    url: mcp/armature-mcp.yml
+  - type: Authentication
+    url: authentication/armature-authentication.yml
+common:
+- type: DeveloperPortal
+  url: https://docs.armature.tech
+- type: Documentation
+  url: https://docs.armature.tech
+- type: APIReference
+  url: https://docs.armature.tech/armature-mcp/tools
+- type: GettingStarted
+  url: https://docs.armature.tech/quickstart
+- type: SignUp
+  url: https://app.armature.tech
+- type: Login
+  url: https://app.armature.tech
+- type: GitHubOrganization
+  url: https://github.com/armature-tech
+- type: Support
+  url: mailto:contact@armature.tech
+- type: PrivacyPolicy
+  url: https://docs.armature.tech/security/privacy
+- type: Packages
+  url: packages/armature-packages.yml
+- type: SDKs
+  url: packages/armature-packages.yml
+- type: MCPServer
+  url: mcp/armature-mcp.yml
+- type: LLMsTxt
+  url: llms/armature-llms.txt
+- type: Authentication
+  url: authentication/armature-authentication.yml
+- type: AgentSkill
+  url: skills/armature-agent-review.md
+- type: Conventions
+  url: conventions/armature-conventions.yml
+- type: Conformance
+  url: conformance/armature-conformance.yml
+- type: DataModel
+  url: data-model/armature-data-model.yml
+- type: WellKnown
+  url: well-known/armature-well-known.yml
+- type: DomainSecurity
+  url: security/armature-domain-security.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

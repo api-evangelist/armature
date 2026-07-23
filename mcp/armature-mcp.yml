@@ -1,0 +1,65 @@
+generated: '2026-07-18'
+method: searched
+status: published
+source: https://docs.armature.tech/armature-mcp/connect
+server:
+  name: armature
+  transport: http
+  url: https://mcp.armature.tech/mcp
+  documentation: https://docs.armature.tech/armature-mcp/connect
+  authorization:
+    methods: [oauth2, bearer_token]
+    recommended: oauth2
+    oauth:
+      metadata: https://mcp.armature.tech/.well-known/oauth-authorization-server
+      protected_resource: https://mcp.armature.tech/.well-known/oauth-protected-resource
+      issuer: https://app.armature.tech
+      authorization_endpoint: https://app.armature.tech/api/mcp/oauth/authorize
+      token_endpoint: https://app.armature.tech/api/mcp/oauth/token
+      registration_endpoint: https://app.armature.tech/api/mcp/oauth/register
+      grant_types: [authorization_code, refresh_token]
+      code_challenge_methods: [S256]
+      scopes: [mcp]
+    bearer:
+      header: Authorization
+      format: "Bearer <workspace_api_key>"
+      note: >-
+        Workspace API keys are created in Settings -> API keys and sent as a
+        bearer token. Read access; the server rejects secret-shaped values in
+        tool arguments.
+  read_only: true
+tools:
+- name: list_mcp_servers
+  description: >-
+    Your registered production MCP servers, with connection metadata. No secrets
+    are ever returned.
+- name: list_sessions
+  description: >-
+    Reconstructed agent sessions, newest first — each with its primary use case
+    and latest judged outcome.
+- name: get_session
+  description: >-
+    One session end-to-end: the intent, every call in order, classification, and
+    the judge's verdict.
+- name: list_use_cases
+  description: Use-case clusters with volume, pass rate, and share of traffic.
+- name: list_issues
+  description: >-
+    Issues ranked by blast radius, with session KPIs, daily pass-rate buckets,
+    cause category, and affected use cases.
+- name: get_issue
+  description: >-
+    One issue in full: root cause, in-range blast radius (sessions, tools, use
+    cases, clients), and example sessions.
+prompts:
+- name: triage_issues
+  description: >-
+    Rank this workspace's issues by blast radius, open the worst one, and show a
+    session that hits it.
+related_servers:
+- name: armature-agent-review
+  url: https://mcp.armature.tech/mcp/agent-review
+  description: >-
+    Submission endpoint for the open agent-review Agent Skill; exposes
+    submit_agent_review / submit_agent_review_detail. See
+    skills/armature-agent-review.md.

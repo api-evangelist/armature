@@ -1,0 +1,49 @@
+generated: '2026-07-18'
+method: searched
+source: >-
+  npm, PyPI, pkg.go.dev / github.com/armature-tech, and the Armature SDK docs
+  (docs.armature.tech/sdks/*)
+packages:
+- language: javascript
+  registry: npm
+  name: "@armature-tech/mcp-analytics"
+  version: 0.6.18
+  url: https://www.npmjs.com/package/@armature-tech/mcp-analytics
+  install: npm install @armature-tech/mcp-analytics
+  repository: https://github.com/armature-tech/mcp-analytics
+  description: >-
+    MCP analytics wrapper SDK that instruments MCP tool declarations with
+    telemetry. Wraps an MCP server via createMcpAnalyticsServer(); reads the
+    ingest key from ANALYTICS_INGEST_API_KEY.
+  official: true
+- language: python
+  registry: pypi
+  name: armature-mcp-analytics
+  version: 0.1.13
+  url: https://pypi.org/project/armature-mcp-analytics/
+  install: pip install "armature-mcp-analytics[fastmcp]"
+  install_alt: pip install "armature-mcp-analytics[mcp]"
+  repository: https://github.com/armature-tech/mcp-analytics-python
+  description: >-
+    Armature analytics wrapper SDK for Python MCP servers. instrument_fastmcp()
+    (idempotent); no-ops when ANALYTICS_INGEST_API_KEY is unset.
+  official: true
+- language: go
+  registry: pkg.go.dev
+  name: github.com/armature-tech/mcp-analytics-go/armatureanalytics
+  url: https://pkg.go.dev/github.com/armature-tech/mcp-analytics-go/armatureanalytics
+  install: go get github.com/armature-tech/mcp-analytics-go/armatureanalytics@latest
+  repository: https://github.com/armature-tech/mcp-analytics-go
+  description: >-
+    Armature observability for Go MCP servers built on mark3labs/mcp-go
+    (armatureanalytics.NewMCPServer).
+  official: true
+- language: go
+  registry: pkg.go.dev
+  name: github.com/armature-tech/mcp-analytics-go/armatureanalytics/official
+  url: https://pkg.go.dev/github.com/armature-tech/mcp-analytics-go/armatureanalytics/official
+  install: go get github.com/armature-tech/mcp-analytics-go/armatureanalytics/official@latest
+  repository: https://github.com/armature-tech/mcp-analytics-go
+  description: >-
+    Armature observability for the official Go MCP SDK (official.NewMCPServer).
+  official: true

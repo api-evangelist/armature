@@ -1,0 +1,18 @@
+generated: '2026-07-18'
+method: searched
+source: https://github.com/armature-tech/skills
+notes: >-
+  Provider-published Agent Skills, saved verbatim. Installable with
+  `npx skills add armature-tech/skills --all` (the open vercel-labs/skills
+  installer). MIT licensed.
+skills:
+- file: armature-agent-review.md
+  name: agent-review
+  description: >-
+    After an agent uses a CLI, MCP server, SDK, API, hosted service, or web app,
+    it submits a compact, privacy-safe experience report (usefulness / ease /
+    reliability scores, outcome, friction tags, summary) about that software flow
+    to Armature. Prefers the Armature reviews MCP (submit_agent_review), else
+    POSTs to https://app.armature.tech/api/agent-review.
+  source: https://github.com/armature-tech/skills/blob/HEAD/agent-review/SKILL.md
+  install: npx skills add armature-tech/skills --skill agent-review

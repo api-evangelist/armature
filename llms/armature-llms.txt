@@ -1,0 +1,28 @@
+# Armature
+
+> Product analytics for agent sessions. Capture what users ask, what agents think, and how they use your product through Claude, ChatGPT, and MCP.
+
+## Docs
+
+- [Connect your agent](https://docs.armature.tech/armature-mcp/connect.md): Query your Armature analytics from Claude Code, Cursor, or any MCP client
+- [Tool reference](https://docs.armature.tech/armature-mcp/tools.md): The read-only tools the Armature MCP exposes
+- [Issues](https://docs.armature.tech/dashboard/issues.md): Recurring problems grouped by root cause, ranked by impact
+- [Overview](https://docs.armature.tech/dashboard/overview.md): Sessions, pass rate, and issues at a glance
+- [Sessions & replay](https://docs.armature.tech/dashboard/sessions.md): Every conversation your MCP sees, scored and replayable
+- [Use cases](https://docs.armature.tech/dashboard/use-cases.md): What your users come to do — ranked by volume and success
+- [Workspace & settings](https://docs.armature.tech/dashboard/workspace.md): Servers, keys, usage, and your team
+- [How Armature works](https://docs.armature.tech/how-it-works.md): From scattered tool calls to replayable, scored sessions
+- [Introduction](https://docs.armature.tech/index.md): Product analytics for agent sessions
+- [Quickstart](https://docs.armature.tech/quickstart.md): From zero to live sessions in a few minutes
+- [Go](https://docs.armature.tech/sdks/go.md): Instrument a Go MCP server with mcp-analytics-go
+- [Identifying users](https://docs.armature.tech/sdks/identifying-users.md): Attribute sessions to the right user or account
+- [Python](https://docs.armature.tech/sdks/python.md): Instrument a Python MCP server with armature-mcp-analytics
+- [Stateless & serverless servers](https://docs.armature.tech/sdks/stateless-servers.md): Keep sessions intact when every request hits a fresh instance
+- [What the SDK captures](https://docs.armature.tech/sdks/telemetry.md): Telemetry fields, session reconstruction, and exactly what leaves your server
+- [TypeScript](https://docs.armature.tech/sdks/typescript.md): Instrument a TypeScript MCP server with @armature-tech/mcp-analytics
+- [Privacy & security](https://docs.armature.tech/security/privacy.md): How session data is protected, end to end
+
+## OpenAPI Specs
+
+- [vendor.openapi](https://docs.armature.tech/test/fixtures/code-mode/petstore/vendor.openapi.json)
+- [openapi](https://docs.armature.tech/.armature/openapi.json)

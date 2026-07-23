@@ -1,0 +1,56 @@
+generated: '2026-07-18'
+method: derived
+source: >-
+  Armature MCP tool reference (docs.armature.tech/armature-mcp/tools) and the
+  dashboard docs (dashboard/sessions, use-cases, issues, overview). No usable
+  OpenAPI (the published spec was retired to an empty stub), so entities are
+  derived from the documented object model exposed by the read-only MCP tools.
+entities:
+- name: MCPServer
+  description: A registered production MCP server being instrumented, with connection metadata.
+  source_tool: list_mcp_servers
+- name: Session
+  description: >-
+    A reconstructed agent session — the user intent, every tool call in order,
+    classification, and the judge's verdict/outcome.
+  source_tool: list_sessions / get_session
+- name: UseCase
+  description: A cluster of sessions sharing an intent, with volume, pass rate, and share of traffic.
+  source_tool: list_use_cases
+- name: Issue
+  description: >-
+    A recurring problem grouped by root cause and ranked by blast radius, with
+    session KPIs, daily pass-rate buckets, cause category, and affected use cases.
+  source_tool: list_issues / get_issue
+- name: ToolCall
+  description: A single instrumented MCP tool invocation (name, timing, outcome, size-capped preview) within a session.
+  source_tool: get_session
+relationships:
+- from: Session
+  to: MCPServer
+  type: belongs_to
+  via: server
+- from: Session
+  to: ToolCall
+  type: has_many
+  via: calls
+- from: Session
+  to: UseCase
+  type: belongs_to
+  via: primary_use_case
+- from: UseCase
+  to: Session
+  type: has_many
+  via: sessions
+- from: Issue
+  to: UseCase
+  type: has_many
+  via: affected_use_cases
+- from: Issue
+  to: Session
+  type: has_many
+  via: example_sessions
+- from: ToolCall
+  to: Session
+  type: belongs_to
+  via: session

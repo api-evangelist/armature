@@ -1,0 +1,49 @@
+generated: '2026-07-18'
+method: searched
+source: >-
+  docs.armature.tech (armature-mcp/connect, sdks/telemetry, sdks/stateless-servers,
+  security/privacy, quickstart)
+authentication:
+  style: bearer
+  detail: >-
+    OAuth 2.0 (authorization-code + PKCE, dynamic client registration) or a
+    workspace API key as a bearer token for the read-only MCP server; a
+    write-only ingest key (ANALYTICS_INGEST_API_KEY) for the SDKs. See
+    authentication/armature-authentication.yml.
+transport:
+  protocol: https
+  mcp_transport: http
+  endpoint: https://mcp.armature.tech/mcp
+idempotency:
+  request_level: false
+  note: >-
+    Armature documents no request-level idempotency key. SDK instrumentation is
+    idempotent (calling instrument_fastmcp twice does not double-count), but that
+    is a client-side safeguard, not an API idempotency contract.
+telemetry_envelope:
+  fields: [tool_name, timing, outcome, size_capped_previews]
+  preview_cap_bytes: 8192
+  transport: https
+  redaction:
+    pii: replaced with PII marker before storage
+    secrets: replaced with SECRET marker before storage
+    actor_identity: SHA-256 hashed server-side before transmission
+    raw_credentials: never leave the customer's server
+delivery:
+  default: async
+  serverless: >-
+    Set delivery "await" (TS) / explicit flush so events send before a
+    serverless function exits; see sdks/stateless-servers.
+retention:
+  free_plan_days: 7
+  paid: custom windows configurable in workspace settings
+error_handling:
+  sdk_failure_mode: >-
+    Missing ingest key -> SDK no-ops silently. In Go, set Config.OnError since
+    delivery is silent by default and can mask auth/network issues.
+versioning:
+  sdk: semver (npm 0.6.x, PyPI 0.1.x)
+cross_references:
+  authentication: authentication/armature-authentication.yml
+  data_model: data-model/armature-data-model.yml
+  mcp: mcp/armature-mcp.yml
