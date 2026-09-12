@@ -88,6 +88,8 @@ apis:
   - type: Authentication
     url: authentication/armature-authentication.yml
 common:
+- type: Website
+  url: https://www.armature.tech/
 - type: DeveloperPortal
   url: https://docs.armature.tech
 - type: Documentation
