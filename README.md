@@ -64,6 +64,98 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Armature is a company surfaced as a portfolio company of y-combinator and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+Armature is a Y Combinator (Spring 2026) startup building product analytics for AI agent sessions. Instead of tracking clicks in a human UI, Armature captures how users interact with a product through Claude, ChatGPT, Claude Code, Cursor and other agents by way of MCP servers. Drop-in SDKs for TypeScript, Python and Go instrument an MCP server, streaming tool names, timing, outcomes and size-capped previews (with PII and secrets redacted before storage) to Armature, which reconstructs replayable, scored sessions. The platform clusters use cases by volume and pass rate, detects issues ranked by blast radius, and exposes a read-only hosted MCP server so teams can query their own agent-experience analytics from any MCP client. Armature also publishes an open "agent-review" Agent Skill that lets agents submit compact, privacy-safe experience reports about the software flows they use.
 
-Backed by: y-combinator
+**Areas:** Company · Agent Experience · MCP · Analytics · Observability · AI Agents · Product Analytics · Developer Tools
+
+## Armature on APIs.io
+
+Everything profiled for Armature is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/armature/](https://apis.io/providers/armature/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [Armature MCP Analytics](https://apis.io/apis/armature/armature-mcp-analytics/) — Armature's programmable surface: an ingest API fed by the TypeScript/Python/Go MCP-analytics SDKs, and a read-only hosted MCP server (mcp.armature.tech)…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [armature](https://apis.io/servers/armature/armature/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Armature Authentication](https://apis.io/security/armature/armature-authentication/)
+- [Armature Domain Security](https://apis.io/security/armature/armature-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.armature.tech/)
+- [Documentation](https://docs.armature.tech)
+- [Getting started](https://docs.armature.tech/quickstart)
+- [API reference](https://docs.armature.tech/armature-mcp/tools)
+- [Sign up](https://app.armature.tech)
+- [Privacy policy](https://docs.armature.tech/security/privacy)
+- [GitHub](https://github.com/armature-tech)
+
+## API Evangelist rating
+
+**Kin Score 26.7** — thin · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 75.0 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 69.0 |
+| Access clarity | 10.5 |
+
+**Agent readiness 30.9** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | yes |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 20.6** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/armature/](https://apis.io/providers/armature/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Armature: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/armature/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
